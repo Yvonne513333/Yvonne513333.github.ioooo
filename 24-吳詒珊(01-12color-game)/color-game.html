@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>顏色大考驗!</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+
+        body{
+            margin: 0;
+            padding: 0;
+        }
+
+        .container-all{
+            width: 100%;
+            height: 100vh;
+            background-color:rgb(240, 96, 96);
+        }
+
+        .main{
+            width: 80%;
+            height: 100%;
+            /* background-color: lightgreen; */
+            margin: auto;
+        }
+
+        .main-top{
+            width: 100%;
+            height: 50%;
+            /* background-color: hsl(0, 79%, 72%); */
+        }
+
+        .main-bottom{
+            width: 100%;
+            height: 50%;
+            /* background-color: lightsalmon; */
+            position: relative;
+        }
+
+        .main-bottom-btn{
+            background-color:rgb(252, 173, 38);
+            width: 14%;
+            height: 100px;
+            position: absolute;
+            bottom: 150px;
+            left:calc(50% - 7%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            color: white;
+            font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            box-shadow: 0 0 5px ;
+            text-decoration: none;
+        }
+
+        .main-bottom-btn:hover{
+            cursor:pointer;
+        }
+
+        .main-top1,
+        .main-top2,
+        .main-top3{
+            /* background-color:lightblue; */
+            height: calc(100% / 3);
+            width: 100%;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .main-top1,
+        .main-top2{
+            font-size: 40px;
+            font-weight: bold;
+            color: white;
+        }
+
+        .main-top3{
+            color: #FFA1A1;
+            text-align: center;
+            font-size: 22px;
+        }
+        
+
+    </style>
+</head>
+<body>
+    <div class="container-all">
+            <div class="main">
+                <div class="main-top">
+                    <div class="main-top1">免費色弱測試</div>
+                    <div class="main-top2">The Color!</div>
+                    <div class="main-top3">找出所有色塊裡顏色不同的一個<br>Click on the title tha has a different color</div>
+                </div>
+                <div class="main-bottom">
+                    <a href="next.html" class="main-bottom-btn">PLAY</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html> 

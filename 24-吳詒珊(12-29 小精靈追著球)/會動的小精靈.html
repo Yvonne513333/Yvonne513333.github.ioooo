@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>會動的小精靈</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container{
+            background-color: aqua;
+            width: 600px;
+            height: 600px;
+            position: relative;
+            background-image: url(./img/ppp.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        .circle-container{
+            /* background-color:lightcoral; */
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            animation-name: move;
+            animation-duration: 15s;
+            animation-iteration-count: infinite;
+        }
+        @keyframes move {
+            0%{
+                left: 0;
+                top: 0;
+            }
+            25%{
+                left: calc(100% - 100px);
+                top: 0;
+                transform: scaleX(-1) rotate(80deg); 
+            }
+            50%{
+                left:  calc(100% - 100px);
+                top:calc(100% - 100px);
+                transform: scaleX(-1);
+            }
+            100%{
+                left:0;
+                top:0;
+                transform: scaleX(-1) rotate(-60deg);
+            }
+        }
+
+        .circle{
+            width: 100px;
+            height: 100px;
+            border-right: 50px solid transparent;
+            border-radius: 50%;
+            animation-duration: 0.3s;
+            animation-iteration-count: infinite;
+        }
+
+        .circle-1 {
+            border-left: 50px solid #FFFDD0	;
+            border-top: 50px solid #FFFDD0	;
+            border-bottom: 50px solid transparent;
+            animation-name: elf-1;
+        }
+
+        .circle-2 {
+            border-left: 50px solid #FFFDD0	;
+            border-top: 50px solid transparent;
+            border-bottom: 50px solid #FFFDD0	;
+            position: absolute;
+            top: 0;
+            animation-name: elf-2;
+        }
+
+        @keyframes elf-1 {
+            0%{
+                transform: rotate(45deg);
+            }
+        }
+        @keyframes elf-2 {
+            0%{
+                transform: rotate(-45deg);
+            }
+        }
+
+        .circle-container::before {
+            content: "";
+            /* background-color: #FFFDD0	; */
+            width: 20px;
+            height: 20px;
+            border: 2px solid;
+            border-radius: 50%;
+            position: absolute;
+            left: 40px;
+            top: 10px;
+            z-index: 1;
+        }
+
+        .circle-container::after {
+            content: "";
+            background-color: black;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            position: absolute;
+            left: 50px;
+            top: 15px;
+            z-index: 2;
+        }
+
+        .ball-container{
+            width: 600px;
+            height: 600px;
+            /* background-color: aqua; */
+            position: absolute;
+            right: 0;
+        }
+
+        .ball-1{
+            width: 20px;
+            height: 20px;
+            background-color:transparent;
+            position: absolute;
+            border-radius: 50%;
+            top: calc(50px - 10px);
+            left: 200px;
+            animation-name: ball-1;
+            animation-duration: 2s;
+            animation-iteration-count: 1;
+        }
+        @keyframes  ball-1{
+            from{
+                top: calc(50px - 10px);
+                left: 200px;
+                background-color: #FFFDD0	;
+            }
+            to{
+                top: calc(50px - 10px);
+                left: 200px;
+            }
+        }
+
+        .ball-2{
+            width: 20px;
+            height: 20px;
+            background-color:transparent;
+            position: absolute;
+            border-radius: 50%;
+            top: 120px;
+            left: 550px;
+            animation-name: ball-2;
+            animation-duration: 9.5s;
+            animation-iteration-count: 1;
+        }
+        @keyframes  ball-2{
+            from{
+                top: 120px;
+                left: 550px;
+                background-color: #FFFDD0	;
+            }
+            to{
+                top: 250px;
+                left: 550px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="circle-container">
+            <div class="circle circle-1"></div>
+            <div class="circle circle-2"></div>
+        </div>
+
+        <div class="ball-container">
+            <div class="ball-1"></div>
+            <div class="ball-2"></div>
+        </div>
+    </div>
+</body>
+
+</html>

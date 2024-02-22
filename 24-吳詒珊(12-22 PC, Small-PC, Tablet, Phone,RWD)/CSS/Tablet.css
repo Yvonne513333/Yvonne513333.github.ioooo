@@ -1,0 +1,125 @@
+
+body{
+  margin: 0;
+}
+
+*{
+  box-sizing: border-box;
+}
+
+.container{
+  width: 100%;
+  height: 100vh;
+  background-color: bisque;
+}
+
+.nav{
+  width: 100%;
+  height: 100px;
+  background-color:lightcoral;
+  position: relative;
+  background-image: url(../img/sky.jpg);
+  background-size: cover;
+  opacity: 0.9;
+}
+
+.logo{
+  /* background-color: black; */
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  left: calc(50% - 350px);
+  background-image: url(../img/D.JPG);
+  background-size: cover;
+}
+
+.nav-btn-all{
+  /* background-color: black; */
+  width: 500px;
+  height: 100px;
+  right: 0;
+  position: absolute;
+  margin-top: 10px;
+
+}
+
+.nav-btn{
+  /* background-color:antiquewhite; */
+  height: 80px;
+  width: 140px;
+  margin-left: 10px;
+  float: left;
+  line-height: 80px;
+  text-align: center;
+  font-size: 26px;
+  font-weight: bold;
+  color:#004B97;
+  text-decoration: none;
+  font-family:sans-serif;
+}
+
+.nav-btn:hover{
+  cursor: pointer;
+  transform: scale(1.2);
+  box-shadow: inset 5px 5px 5px 5px #ECF5FF	;
+  border: 2px solid;
+  border-radius: 20px;
+  transition: transform 0.5s; 
+}
+
+
+
+.content-all{
+  background-color:white;
+  width: 100%;
+  height: calc(100% - 100px);
+  position: relative;
+}
+
+.content{
+  /* background-color: lightpink; */
+  width: 700px;
+  height: 800px;
+  position: absolute;
+  left: calc(50% - 350px);
+  top:calc(50% - 400px);
+}
+
+
+
+.img{
+      background-color: tomato;
+      width: 33%;
+      height: calc(50% - 5px);
+      float: left;
+      background-position: top;
+  }
+
+  .img:hover{
+      transform: scale(1.1);
+      opacity: 0.9;
+      border: 2px solid;
+      border-radius: 20px;
+      opacity: 0.8;
+  }
+
+  .img-1{
+      width: 100%;
+      background-image: url(../img/A.jpg);
+      background-size: cover;
+      margin-bottom: 10px;
+  }
+
+  .img-2{
+      width: calc(50% - 5px);
+      background-image: url(../img/B.jpg);
+      background-repeat: no-repeat;
+      background-size: cover;
+      margin-right:10px;
+  }
+
+  .img-3{
+      width: calc(50% - 5px);
+      background-image: url(../img/C.jpg);
+      background-size: cover;
+  }

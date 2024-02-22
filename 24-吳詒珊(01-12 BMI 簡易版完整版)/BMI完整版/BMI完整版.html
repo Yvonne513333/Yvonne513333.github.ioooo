@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI完整版</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        p,
+        h1 {
+            text-align: center;
+        }
+
+        .num1,
+        .num2 {
+            border-radius: 3px;
+        }
+
+        .compute {
+            margin-left: 300px;
+        }
+
+        button {
+            width: 70px;
+            height: 30px;
+            background-color: #333;
+            color: aliceblue;
+            border-radius: 10px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        button:hover {
+            background-color: gray;
+            transform: scale(1.1);
+        }
+
+        .result {
+            padding: 5px;
+        }
+
+        .my-result {
+            /* background-color: aqua; */
+            border: 2px solid;
+            border-radius: 10px;
+            width: 300px;
+            height: 40px;
+            margin: auto;
+            padding: 5px;
+            margin-top: 10px;
+            display: flex;
+        }
+
+        .container-all {
+            width: 100%;
+            height: 100vh;
+            background-color: blanchedalmond;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .container-top {
+            /* background-color: aqua; */
+            height: 400px;
+            width: 700px;
+        }
+
+        .container-mid {
+            width: 400px;
+        }
+
+
+        table,
+        th,
+        td {
+            border: 1px solid;
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-all">
+        <div class="container-top">
+            <h1>
+                BMI計算機
+            </h1>
+            <p>
+                身體質量指數(Body Mass Index，簡稱BMI)是公認用來估計肥胖程度的方法
+            </p>
+            <P>
+                BMI = 體重(公斤)/身高的平方(公尺)
+            </P>
+            <p>性別：
+                <input type="radio" id="male" name="gender" value="男">
+                <label for="male">男</label>
+                <input type="radio" id="female" name="gender" value="女">
+                <label for="female">女</label>
+            </p>
+            <P>我的身高:
+                <input type="number" class="num1"> 公分
+            </P>
+            <p>我的體重:
+                <input type="number" class="num2"> 公斤
+            </p>
+
+            <button class="compute">計算</button>
+            <button class="again">重新填寫</button>
+
+            <div class="my-result">您的BMI為：<span class="result"></span></div>
+        </div>
+
+        <div class="container-mid">
+            <table>
+                <thead>
+                    <tr>
+                        <th colspan="3">BMI值</th>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>男性</td>
+                        <td>女性</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="td-1">體重過輕</td>
+                        <td class="td-2"> &lt; 20 </td>
+                        <td class="td-3"> &lt; 19</td>
+                    </tr>
+                    <tr>
+                        <td class="td-1">正常範圍</td>
+                        <td class="td-2">20-25</td>
+                        <td class="td-3">19-25</td>
+                    </tr>
+                    <tr>
+                        <td class="td-1">體重過重</td>
+                        <td class="td-2">25-30</td>
+                        <td class="td-3">25-30</td>
+                    </tr>
+                    <tr>
+                        <td class="td-1">肥胖</td>
+                        <td class="td-2">30-40</td>
+                        <td class="td-3">30-40</td>
+                    </tr>
+                    <tr>
+                        <td class="td-1">病態肥胖</td>
+                        <td class="td-2"> &gt; 40</td>
+                        <td class="td-3"> &gt; 40</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+    <script>
+        let num1 = document.querySelector('.num1');
+        let num2 = document.querySelector('.num2');
+
+        let compute = document.querySelector('.compute');
+        let again = document.querySelector('.again');
+
+        let result = document.querySelector('.result');
+
+        // 亮顏色的命名
+        let tdAll = document.querySelectorAll('table tbody tr > td');
+        let tdAll_1 = document.querySelectorAll('.td-1');
+        let tdAll_2 = document.querySelectorAll('.td-2');
+        let tdAll_3 = document.querySelectorAll('.td-3');
+
+        console.log(typeof tdAll.length);
+
+
+        function tdMale() {
+            tdAll_1[doRowNew].style.backgroundColor = '#46A3FF';
+            tdAll_2[doRowNew].style.backgroundColor = '#46A3FF';
+        }
+
+        function tdFemale() {
+            tdAll_1[doRowNew].style.backgroundColor = '#FF79BC';
+            tdAll_3[doRowNew].style.backgroundColor = '#FF79BC';
+        }
+
+        // function tdblanchedalmond() {
+        //     for (let i = 0; i < tdAll.length; i++) {
+        //         tdAll[i].style.backgroundColor = 'blanchedalmond';
+        //     }
+        // }
+
+        function tdblanchedalmond() {
+            tdAll.forEach(function (tdAll) {
+                tdAll.style.backgroundColor = 'blanchedalmond';
+            });
+        }
+
+
+        function maleBMI() {
+            let BMI = num2.value / (num1.value / 100) ** 2;
+
+            if (BMI < 20) {
+                doRowNew = 0;
+                tdMale();
+            } else if (BMI > 20 && BMI <= 25) {
+                doRowNew = 1;
+                tdMale();
+            } else if (BMI > 25 && BMI <= 30) {
+                doRowNew = 2;
+                tdMale();
+            } else if (BMI > 30 && BMI <= 40) {
+                doRowNew = 3;
+                tdMale();
+            } else {
+                doRowNew = 4;
+                tdMale();
+            }
+
+            return BMI;
+        }
+
+        function femaleBMI() {
+            let BMI = num2.value / (num1.value / 100) ** 2;
+
+            if (BMI < 19) {
+                doRowNew = 0;
+                tdFemale();
+            } else if (BMI > 19 && BMI <= 25) {
+                doRowNew = 1;
+                tdFemale();
+            } else if (BMI > 25 && BMI <= 30) {
+                doRowNew = 2;
+                tdFemale();
+            } else if (BMI > 30 && BMI <= 40) {
+                doRowNew = 3;
+                tdFemale();
+            } else {
+                doRowNew = 4;
+                tdFemale();
+            }
+
+            return BMI;
+        }
+
+        compute.addEventListener('click', function () {
+            let gender = document.querySelector('input[name="gender"]:checked');
+            let BMI = num2.value / (num1.value / 100) ** 2;
+            console.log(BMI);
+            result.innerHTML = BMI.toFixed(2);
+
+
+            if (num1.value === '' && !gender) {
+                alert('請填寫性別及數值');
+                return;
+            }
+
+            if (num2.value === '' && !gender) {
+                alert('請填寫性別及數值');
+                return;
+            }
+
+            if (!gender) {
+                alert('請選擇性別');
+                return;
+            }
+
+            if (num1.value === '' || num2.value === '') {
+                alert('請填寫數值');
+                return;
+            }
+
+            // 以下為加入顏色的CODE
+            // 這邊的覆蓋背景顏色不能寫在韓式泡菜下方，一定要在此位置，不然男女顏色會被此呼叫吃掉^^
+            tdblanchedalmond();
+
+
+            // 取名為韓式泡菜
+            if (gender.id === 'male') {
+                let BMI = maleBMI();
+
+                result.innerText = BMI.toFixed(2);
+            } else {
+                let BMI = femaleBMI();
+
+                result.innerText = BMI.toFixed(2);
+            }
+            
+        });
+
+        again.addEventListener('click', function () {
+            let gender = document.querySelector('input[name="gender"]:checked');
+
+            // 這邊的覆蓋背景顏色放哪裡都沒差
+            tdblanchedalmond();
+
+            num1.value = '';
+            num2.value = '';
+            result.innerHTML = '';
+            male.checked = false;
+            female.checked = false;
+
+        });
+    </script>
+</body>
+
+</html>

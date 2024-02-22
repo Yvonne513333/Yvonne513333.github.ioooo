@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        .ham-menu-btn {
+            background-color: aqua;
+            width: 100px;
+            height: 100px;
+            /* 因結構的Label預設是行內元素，無法呈現大小，除非打字。故解決方式為:改成block 區塊元素 */
+            display: block;
+            position: relative;
+        }
+
+        /* 空一格 後代=>後代選擇器  (權重會增加) */
+        .ham-menu-btn .line {
+            background-color: black;
+            width: 60%;
+            height: 10px;
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            transition: 1s;
+        }
+
+        .ham-menu-btn #line-1 {
+            top: 25%;
+        }
+
+        .ham-menu-btn #line-2 {
+            top: 50%;
+        }
+
+        .ham-menu-btn #line-3 {
+            top: 75%;
+        }
+
+        /* 
+        #ham-menu-switch:checked{
+            display: none;
+        } */
+
+        /* "+" 選相鄰的兄弟(一定只有一個而且是後面的，不會是前面的) */
+        #ham-menu-switch:checked+.ham-menu-btn #line-1{
+            top: 50%;
+            transform:  translate(-50%, -50%) rotate(45deg);
+        }
+
+        #ham-menu-switch:checked+.ham-menu-btn #line-2{
+            display: none;
+        }
+
+        #ham-menu-switch:checked+.ham-menu-btn #line-3{
+            top: 50%;
+            transform:  translate(-50%, -50%) rotate(-45deg);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 漢堡menu的按鈕紀錄器 -->
+    <input type="checkbox" id="ham-menu-switch" hidden>
+    <!-- 漢堡menu的按鈕本體 -->
+    <label for="ham-menu-switch" class="ham-menu-btn">
+        <div id="line-1" class="line"></div>
+        <div id="line-2" class="line"></div>
+        <div id="line-3" class="line"></div>
+    </label>
+</body>
+
+</html>

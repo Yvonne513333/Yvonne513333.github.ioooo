@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body{
+            margin: 0;
+            height: 3000px;
+            background-color:white;
+        }
+
+        #nav{
+            width: 100%;
+            height: 70px;
+            background-color:white;
+            /* 固定式 對body來定位 */
+            /* 定位就是圖層的意思，代表已經飄浮起來 */
+            position: fixed;
+            /* 數字越大圖層越靠近你 */
+            z-index: 9;
+        }
+
+        #A{
+            width: 40px;
+            height: 40px;
+            background-color: thistle;
+            background-image: url(./img/fb/svgexport-1.svg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            border-radius: 50%;
+            margin:10px;
+            position: absolute;
+        }
+
+        #logo1{
+            width: 280px;
+            height: 40px;
+            background-color:rgba(241, 240, 240, 0.873);
+            border-radius: 50px;
+            background-repeat: no-repeat;
+            position: absolute;
+            left: 60px;
+            margin: 10px;
+            font-size: 16px;
+            color: gray;
+            text-align: left;
+            line-height: 40px;
+            text-indent: 30px;
+        }
+
+        #logo1-1{
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-image:url(./img/fb/svgexport-3.svg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: absolute;
+            left: 10px;
+            bottom: 10px;
+        }
+
+        #logo2{
+            background-color: white;
+            width: 420px;
+            height: 70px;
+            position: absolute;
+            left: 40%;
+        }
+
+        #logo2-1{
+            width: 30px;
+            height: 30px;
+            background-image: url(./img/fb/svgexport-4.svg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: absolute;
+            left: 20px;
+            bottom: 20px;
+        }
+
+        #logo2-2{
+            width: 30px;
+            height: 30px;
+            background-image: url(./img/fb/svgexport-5.svg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: absolute;
+            left: 100px;
+            bottom: 20px;
+        }
+
+        #logo2-3{
+            width: 30px;
+            height: 30px;
+            background-image: url(./img/fb/svgexport-6.svg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: absolute;
+            left: 180px;
+            bottom: 20px;
+        }
+
+        #logo2-4{
+            width: 30px;
+            height: 30px;
+            background-image: url(./img/fb/svgexport-7.svg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: absolute;
+            left: 260px;
+            bottom: 20px;
+        }
+
+        #logo2-5{
+            width: 30px;
+            height: 30px;
+            background-image: url(./img/fb/svgexport-8.svg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: absolute;
+            left: 330px;
+            bottom: 20px;
+        }
+
+        #logo3{
+            background-color:white;
+            width: 200px;
+            height: 70px;
+            position: absolute;
+            right: 0;
+        }
+
+        #logo3-1{
+            width: 20px;
+            height: 20px;
+            background-image: url(./img/fb/svgexport-14.svg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: absolute;
+            left: 20px;
+            bottom: 20px;
+        }
+
+        #logo3-2{
+            width: 20px;
+            height: 20px;
+            background-image: url(./img/fb/svgexport-13.svg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: absolute;
+            left: 70px;
+            bottom: 20px;
+        }
+
+        #logo3-3{
+            width: 20px;
+            height: 20px;
+            background-image: url(./img/fb/svgexport-12.svg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: absolute;
+            left: 118px;
+            bottom: 20px;
+        }
+
+        #logo3-4{
+            width: 50px;
+            height: 50px;
+            background-image: url(./img/雪寶.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: absolute;
+            left: 150px;
+            bottom: 10px;
+            border-radius: 50%;
+        }
+
+
+
+        #all{
+            background-color: white;
+            height: 1000px;
+            width: 80%;
+            margin: auto;
+            padding-top: 70px;
+        }
+
+        #banner{
+            background-color: lightgreen;
+            width: 100%;
+            height: 500px;
+            background-image: url(./img/冰雪奇緣2.jpg);
+            
+            /* 此兩個通常一起使用
+            background-repeat: no-repeat;
+            /* 指要有一邊碰到就停止(較少用) */
+            background-size: contain; */
+            
+            /* 長到兩邊都碰到才會停(較常用)(保持原比例擴大) */
+            background-size: cover;
+            position: relative;
+        }
+
+        #banner1{
+            width: 160px;
+            height: 40px;
+            background-color:#00000066;
+            position: absolute;
+            border-radius: 10px;
+            right: 10px;
+            bottom: 80px;
+            color: white;
+            justify-content: center;
+            align-items: center;
+            font-weight: bolder;
+            display: flex;
+        }
+
+        #banner2{
+            width: 160px;
+            height: 40px;
+            background-color:#00000066;
+            position: absolute;
+            border-radius: 10px;
+            right: 10px;
+            bottom: 20px;
+            color: white;
+            justify-content: center;
+            align-items: center;
+            font-weight: bolder;
+            display: flex;
+        }
+
+        #snowman{
+            background-color: blueviolet;
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            bottom: -50px;
+            left:100px;
+            border-radius: 50%;
+
+            /*  ./ 就是現在目前的位置 */
+            /*  ../ 就是上一層的位置 */
+            background-image: url(./img/雪寶.jpg);
+            background-repeat: no-repeat;
+            
+            /* 當照片放很大模糊時，可使用此語法 */
+            background-size:cover;
+            z-index: 9;
+        }
+
+        #down{
+            width: 80%;
+            height: 120px;
+            background-color: white;
+            margin: auto;
+            position: absolute;
+            font-size: 25px;
+            color: black;
+            font-size: bold;
+            text-indent: 230px;
+            line-height: 60px;
+        }
+
+        #down1{
+            width: 200px;
+            height: 60px;
+            background-color:rgba(245, 244, 244, 0.678);
+            border-radius: 10px;
+            position: absolute;
+            right: 300px;
+            font-size: 18px;
+            color: black;
+            text-align: center;
+            text-indent: 5px;
+            bottom: 10px;
+            line-height: 60px;
+        }
+
+        
+        #down2{
+            width: 200px;
+            height: 60px;
+            background-color:rgba(245, 244, 244, 0.678);
+            border-radius: 10px;
+            position: absolute;
+            right: 80px;
+            font-size: 18px;
+            color:black;
+            text-align: center;
+            text-indent: 5px;
+            bottom: 10px;
+            line-height: 60px;
+        }
+    </style>
+</head>
+<body>
+    <div id="nav">
+        <div id="A"></div>
+        <div id="logo1">搜尋Facebook
+            <div id="logo1-1"></div>
+        </div>
+        <div id="logo2">
+            <div id="logo2-1"></div>
+            <div id="logo2-2"></div>
+            <div id="logo2-3"></div>
+            <div id="logo2-4"></div>
+            <div id="logo2-5"></div>
+        </div>
+        <div id="logo3">
+            <div id="logo3-1"></div>
+            <div id="logo3-2"></div>
+            <div id="logo3-3"></div>
+            <div id="logo3-4"></div>
+        </div>
+    </div>
+    <div id="all">
+        <div id="banner">
+            <div id="banner1">使用虛擬替身建議</div>
+            <div id="banner2">加上封面照片</div>
+            <div id="snowman"></div>
+        </div>
+        <div id="down">雪寶
+            <div id="down1">新增到限時動態</div>
+            <div id="down2">編輯個人檔案</div>
+            <div id="down3"></div>
+        </div>
+    </div>
+</body>
+</html>

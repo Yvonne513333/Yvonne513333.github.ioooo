@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            padding-top: 100px;
+        }
+        #big-box{
+            background-color: black;
+            width: calc(80% - 20px);
+            height: calc(600px - 20px);
+            margin: auto;
+            padding: 10px;
+        }
+
+        #header{
+            background-color:yellow;
+            height: calc(20% - 20px /3);
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        #main{
+            /* background-color: aqua; */
+            height: calc(60% - 20px /3 );
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        #footer{
+            background-color: aquamarine;
+            width: 100%;
+            height: calc(20% - 20px /3);
+            margin-bottom: 10px;
+        }
+
+        #mainL{
+            background-color: blueviolet;
+            width: 34%;
+            height: 100%;
+            float: left;
+        }
+
+        #mainR{
+            width: calc(66% - 10px);
+            height: 100%;
+            float: right;
+        }
+
+        #mainR-top{
+            background-color: grey;
+            width: 100%;
+            height: calc(34% - 20px /3);
+            margin-bottom: 10px;
+        }
+
+        #mainR-middle{
+            background-color: brown;
+            width: 100%;
+            height: calc(32% - 20px /3);
+            margin-bottom: 10px;
+        }
+
+        #mainR-down{
+            background-color: blue;
+            width: 100%;
+            height: calc(34% - 20px /3);
+        }
+    </style>
+
+</head>
+<body>
+
+    <div id="big-box">
+        <div id="header"></div>
+        <div id="main">
+            <div id="mainL"></div>
+            <div id="mainR">
+                <div id="mainR-top"></div>
+                <div id="mainR-middle"></div>
+                <div id="mainR-down"></div>
+            </div>
+        </div>
+        <div id="footer"></div>
+    </div>
+    
+</body>
+</html>

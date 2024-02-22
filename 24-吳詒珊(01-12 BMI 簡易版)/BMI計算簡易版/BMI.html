@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        p,
+        h1 {
+            text-align: center;
+        }
+
+        .num1, .num2{
+            border-radius: 3px;
+        }
+
+        .compute {
+            margin-left: 300px;
+        }
+
+        button {
+            width: 70px;
+            height: 30px;
+            background-color: #333;
+            color: aliceblue;
+            border-radius: 10px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        button:hover {
+            background-color: gray;
+            transform: scale(1.1);
+        }
+
+        .result {
+            padding: 5px;
+        }
+        .my-result{
+            /* background-color: aqua; */
+            border: 2px solid;
+            border-radius: 10px;
+            width: 300px;
+            height: 40px;
+            margin: auto;
+            padding: 5px;
+            margin-top: 10px;
+            display: flex;
+        }
+
+        .container-all {
+            width: 100%;
+            height: 100vh;
+            background-color: blanchedalmond;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .container-top {
+            /* background-color: aqua; */
+            height: 400px;
+            width: 700px;
+        }
+
+        .container-mid {
+            width: 400px;
+        }
+
+
+        table,
+        th,
+        td {
+            border: 1px solid;
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-all">
+        <div class="container-top">
+            <h1>
+                BMI計算機
+            </h1>
+            <p>
+                身體質量指數(Body Mass Index，簡稱BMI)是公認用來估計肥胖程度的方法
+            </p>
+            <P>
+                BMI = 體重(公斤)/身高的平方(公尺)
+            </P>
+            <p>性別：
+                <input type="radio" id="male" name="gender" value="男">
+                <label for="male">男</label>
+                <input type="radio" id="female" name="gender" value="女">
+                <label for="female">女</label>
+            </p>
+            <P>我的身高:
+                <input type="number" class="num1" > 公分
+            </P>
+            <p>我的體重:
+                <input type="number" class="num2" > 公斤
+            </p>
+
+            <button class="compute">計算</button>
+            <button class="again">重新填寫</button>
+
+            <div class="my-result">您的BMI為：<span class="result"></span></div>
+        </div>
+
+        <div class="container-mid">
+            <table>
+                <thead>
+                    <tr>
+                        <th colspan="3">BMI值</th>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>男性</td>
+                        <td>女性</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>體重過輕</td>
+                        <td> &lt; 20 </td>
+                        <td> &lt; 19</td>
+                    </tr>
+                    <tr>
+                        <td>正常範圍</td>
+                        <td>20-25</td>
+                        <td>19-25</td>
+                    </tr>
+                    <tr>
+                        <td>體重過重</td>
+                        <td>25-30</td>
+                        <td>25-30</td>
+                    </tr>
+                    <tr>
+                        <td>肥胖</td>
+                        <td>30-40</td>
+                        <td>30-40</td>
+                    </tr>
+                    <tr>
+                        <td>病態肥胖</td>
+                        <td> &gt; 40</td>
+                        <td> &gt; 40</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+    <script>
+        let num1 = document.querySelector('.num1');
+        let num2 = document.querySelector('.num2');
+
+        let compute = document.querySelector('.compute');
+        let again = document.querySelector('.again');
+
+        let result = document.querySelector('.result');
+
+
+        compute.addEventListener('click', function () {
+            let gender = document.querySelector('input[name="gender"]:checked');
+            let BMI = num2.value / (num1.value / 100) ** 2;
+            console.log(BMI);
+            result.innerHTML = BMI.toFixed(2);
+
+            if(num1.value === '' && !gender){
+                alert('請填寫性別及數值');
+                return;
+            }
+
+            if(num2.value === '' && !gender){
+                alert('請填寫性別及數值');
+                return;
+            }
+
+            if (!gender) {
+                alert('請選擇性別');
+                return;
+            }
+
+            if(num1.value === ''  || num2.value === ''){
+                alert('請填寫數值');
+                return;
+            }
+        });
+
+        again.addEventListener('click', function(){
+            let gender = document.querySelector('input[name="gender"]:checked');
+            num1.value='';
+            num2.value='';
+            result.innerHTML = '';
+            male.checked = false;
+            female.checked = false;
+        });
+    </script>
+</body>
+
+</html>

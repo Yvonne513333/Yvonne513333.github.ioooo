@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  <!-- 表單 -->
+  <form action="">
+
+    <!-- p標籤=>段落:會佔兩行 -->
+    <p>                     <!-- 必選或必填 -->
+    姓名： <input type="text" required>
+    </p>
+                                        
+    姓名： <input type="text" value="513" >
+    <br>
+    姓名： <input type="text"  placeholder="請輸入">
+    <br>
+    年齡： <input type="number" min="1" max="300" required>
+    <br>
+
+    <!-- 單選 -->
+    <!-- 如何不需只點圈圈才能選到男/女? 取id!-->
+    <!-- label及radio應用 -->
+    <!-- label特性:遠處也可被觸發 -->
+    性別： &nbsp;&nbsp;
+    <label for="male">男</label>
+    <input id="male" type="radio" name="gender" required>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <label for="female">女</label>
+    <input id="female" type="radio" name="gender" required>
+    
+    <br>
+    <!-- 複選 -->
+    午餐：
+    牛肉 <input type="checkbox">
+    豬肉 <input type="checkbox">
+    素食 <input type="checkbox">
+    
+    <p>
+       <select name="" id="" required>
+        <option value="" selected disabled>請選擇</option>
+           <option value="01">台北市</option>
+           <option value="03">新竹市</option>
+           <option value="04">台中市</option>
+       </select>       
+    </p>
+
+    <button type="reset">取消</button>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <button type="submit">確定</button>
+
+  </form>
+</body>
+</html>

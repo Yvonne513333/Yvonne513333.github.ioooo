@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>顏色大考驗!</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .container-all {
+            background-color: rgb(240, 96, 96);
+            width: 100%;
+            height: 100vh;
+            display: flex;
+        }
+
+        .nav {
+            /* background-color: lightgreen; */
+            height: 100%;
+            width: 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .score,
+        .nav-mid,
+        .nav-bottom {
+            /* background-color: lightgoldenrodyellow; */
+            width: 200px;
+            height: 100px;
+            margin-top: 10px;
+            font-size: 30px;
+            font-weight: bold;
+            line-height: 100px;
+            border-radius: 20px;
+            text-align: center;
+        }
+
+        .main {
+            /* background-color: lightsteelblue; */
+            height: 100%;
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .big-box {
+            width: 600px;
+            height: 600px;
+            background-color: #FFE4C4;
+            padding: 10px;
+            display: flex;
+            flex-wrap: wrap;
+            border-radius: 10px;
+        }
+
+        .box {
+            background-color: #DEB887;
+            width: 50%;
+            height: 50%;
+            border: 5px solid #FFE4C4;
+            border-radius: 10px;
+        }
+
+        .answer {
+            opacity: 0.5;
+        }
+
+        .game-over {
+            width: 100px;
+            height: 100px;
+            background-color: aqua;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-all">
+        <div class="nav">
+            <div class="score">得分：<span>0</span></div>
+            <!-- <div class="nav-mid">計時</div>
+            <div class="nav-bottom">PAUSE</div> -->
+        </div>
+        <div class="main">
+            <div class="big-box">
+                <!-- <div class="box"></div>
+                <div class="box"></div>
+                <div class="box"></div>
+                <div class="box answer"></div> -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let scoreText = document.querySelector('.score span');
+        function score() {
+            let score = Number(scoreText.innerText);
+            score += 1;
+            scoreText.innerText = score;
+        }
+
+        let bigBox = document.querySelector('.big-box');
+        bigBox.innerHTML = '';
+
+        let level = 2;
+        for (let i = 0; i < level * level; i++) {
+            bigBox.innerHTML += `<div class="box"></div>`;
+        }
+
+        let boxAll = document.querySelectorAll('.box');
+        console.log(boxAll);
+
+        let answer = 2;
+
+        boxAll[answer].classList.add('answer');
+
+        boxAll[answer].addEventListener('click', function () {
+            alert('恭喜過關');
+            score();
+            level = level + 1;
+            bigBox.innerHTML = '';
+
+            for (let i = 0; i < level * level; i++) {
+                bigBox.innerHTML += `<div class="box"></div>`;
+            }
+
+            boxAll = document.querySelectorAll('.box');
+            for (let i = 0; i < level * level; i++) {
+                boxAll[i].style.width = 100 / 3 + '%';
+                boxAll[i].style.height = 100 / 3 + '%';
+            }
+
+            answer = 4;
+            boxAll[answer].classList.add('answer');
+            boxAll[answer].addEventListener('click', function () {
+                alert('恭喜過關');
+                score();
+                level = level + 1;
+                bigBox.innerHTML = '';
+                for (let i = 0; i < level * level; i++) {
+                    bigBox.innerHTML += `<div class="box"></div>`;
+                }
+                boxAll = document.querySelectorAll('.box');
+                for (let i = 0; i < level * level; i++) {
+                    boxAll[i].style.width = 100 / 4 + '%';
+                    boxAll[i].style.height = 100 / 4 + '%';
+                }
+
+                answer = 5;
+                boxAll[answer].classList.add('answer');
+                boxAll[answer].addEventListener('click', function () {
+                    alert('恭喜過關');
+                    score();
+                    level = level + 1;
+                    bigBox.innerHTML = '';
+                    for (let i = 0; i < level * level; i++) {
+                        bigBox.innerHTML += `<div class="box"></div>`;
+                    }
+                    boxAll = document.querySelectorAll('.box');
+                    for (let i = 0; i < level * level; i++) {
+                        boxAll[i].style.width = 100 / 5 + '%';
+                        boxAll[i].style.height = 100 / 5 + '%';
+                    }
+                    answer = 15;
+                    boxAll[answer].classList.add('answer');
+                    boxAll[answer].addEventListener('click', function () {
+                        alert('恭喜過關');
+                        score();
+                        level = level + 1;
+                        bigBox.innerHTML = '';
+                        for (let i = 0; i < level * level; i++) {
+                            bigBox.innerHTML += `<div class="box"></div>`;
+                        }
+                        boxAll = document.querySelectorAll('.box');
+                        for (let i = 0; i < level * level; i++) {
+                            boxAll[i].style.width = 100 / 6 + '%';
+                            boxAll[i].style.height = 100 / 6 + '%';
+                        }
+                        answer = 28;
+                        boxAll[answer].classList.add('answer');
+                        boxAll[answer].addEventListener('click', function () {
+                            alert('恭喜過最後一關^_^');
+                            score();
+                            bigBox.innerHTML = '';
+                            bigBox.innerHTML = 'GAME OVER!';
+                        });
+                    });
+                });
+            });
+        });
+
+    </script>
+
+</body>
+
+</html>
